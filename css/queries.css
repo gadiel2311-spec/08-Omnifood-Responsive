@@ -14,13 +14,6 @@
   font-size: 4.4rem;
 }
 
-/* Font sizes (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
-
-/* Spacing system (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
-*/
-
 .gallery {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -138,13 +131,52 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  transform: translateX(100%);
 
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s;
+
+  /* HIDE NAVIGATION */
+  /* Allows NO transitions at all  */
+  /* display: none; */
+
+  /* 1) Hide it visually */
+  opacity: 0;
+  /* 2) Make it unaccessible to mause ad keyboard*/
+  pointer-events: none;
+
+  /* 3) Hide it from screen readers */
+  visibility: hidden;
+}
+
+.nav-open .main-nav {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.nav-open .icon-mobile-nav[name="close-outline"] {
+  display: block;
+}
+.nav-open .icon-mobile-nav[name="menu-outline"] {
+  display: none;
 }
 
 .main-nav-list {
   flex-direction: column;
   gap: 4.8rem;
 }
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  font-size: 3rem;
+}
+
+/* Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
+
+/* Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
